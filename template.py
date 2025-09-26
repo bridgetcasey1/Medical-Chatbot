@@ -5,7 +5,7 @@ import logging
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 list_of_files = [
-    "src/__init__.py",  # will create folder src containing __init__.py (constructor file)
+    "src/__init__.py",  # will create folder src containing __init__.py (constructor file / local package / environment)
     "src/helper.py",
     "src/prompt.py",
     ".env",
@@ -17,7 +17,7 @@ list_of_files = [
 
 for filepath in list_of_files:
     filepath = Path(filepath)
-    filedir, filename = os.path.split(filepath)
+    filedir, filename = os.path.split(filepath)  # splitting folder/location and file name
 
     if filedir !="":
         os.makedirs(filedir, exist_ok=True)
@@ -29,4 +29,4 @@ for filepath in list_of_files:
             logging.info(f"Creating empty file: {filepath}")
 
     else:
-        logging.info(f"{filename} is already exists")
+        logging.info(f"{filename} already exists")
